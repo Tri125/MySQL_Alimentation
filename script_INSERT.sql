@@ -666,3 +666,271 @@ VALUES(
 '4 Biscuit oréo'
 );
 */
+
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Oeuf cuit à la poêle'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 2
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Tranche de pain de blé entier'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 2
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Nutella'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 2
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Verre de lait 2%'
+	AND quantite = 100 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+, 2
+);
+
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec lait')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Verre de lait 2%'
+	AND quantite = 100 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec lait')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Pâté chinois'
+	AND quantite = 540
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour quatre avec lait')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Verre de lait 2%'
+	AND quantite = 100 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour quatre avec lait')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Pizza toute garnie'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+, 4
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour deux')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Verre de lait 2%'
+	AND quantite = 100 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour deux')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Pizza toute garnie'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+, 2
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois pour enfant')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Pâté chinois'
+	AND quantite = 540
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+, 1.5
+);
+
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Tranche de pain de blé entier'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Beurre'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Verre de jus d’orange'
+	AND quantite = 100 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+, 2
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec légumes pour enfant')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Pâté chinois'
+	AND quantite = 540
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+, 0.5
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec légumes pour enfant')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Carotte crue (petite)'
+	AND quantite = 1
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 10
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 6 onces')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Steak au poivre'
+	AND quantite = 6
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Once(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+, 1
+);
+
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Tranche de pain de blé entier'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Nutella'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Verre de jus d’orange'
+	AND quantite = 100 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+, 2
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Macaroni au fromage de taille médium avec légumes')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Macaroni au fromage maison'
+	AND quantite = 200 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES(
+(SELECT idRepas FROM Repas WHERE nom = 'Macaroni au fromage de taille médium avec légumes')
+, (SELECT idAliment FROM Aliments WHERE 
+	nom = 'Branche de céleri'
+	AND quantite = 1 
+	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
+	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+, 3
+);
