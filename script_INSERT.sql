@@ -646,6 +646,9 @@ VALUES(
 );
 
 
+#Insert RepasAliments
+
+# Déjeuner copieux avec nutella et lait
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -691,6 +694,8 @@ VALUES
 );
 
 
+#Pâté chinois avec lait
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -712,6 +717,8 @@ VALUES
 	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 1
 );
+
+# Pizza toute garnie pour quatre avec lait
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -735,6 +742,8 @@ VALUES
 , 4
 );
 
+# Pizza toute garnie pour deux
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -757,6 +766,7 @@ VALUES
 , 2
 );
 
+# Pâté chinois pour enfant
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -768,6 +778,7 @@ VALUES
 , 1.5
 );
 
+# Déjeuner copieux standard avec jus d''orange
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -801,6 +812,8 @@ VALUES
 	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 2
 );
+
+# Pâté chinois avec légumes pour enfant
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -824,6 +837,7 @@ VALUES
 , 10
 );
 
+# Steak au poivre 6 onces
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -835,6 +849,8 @@ VALUES
 , 1
 );
 
+
+# Déjeuner chocolaté et jus d'orange
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -869,6 +885,8 @@ VALUES
 , 2
 );
 
+# Macaroni au fromage de taille médium avec légumes
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -890,6 +908,9 @@ VALUES
 	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 3
 );
+
+
+# Déjeuner complet avec pain blanc
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -935,6 +956,8 @@ VALUES
 , 2
 );
 
+# Steak au poivre 12 onces avec légumes
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -956,6 +979,9 @@ VALUES
 	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 5
 );
+
+
+# Déjeuner simple avec lait
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -990,6 +1016,9 @@ VALUES
 , 1
 );
 
+
+# Pain-extreme chocolaté avec lait
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -1023,6 +1052,9 @@ VALUES
 , 4
 );
 
+
+# Grand macaroni au fromage familial
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -1033,6 +1065,9 @@ VALUES
 	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 3
 );
+
+
+# Steak au poivre 18 onces avec légumes
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -1056,6 +1091,9 @@ VALUES
 , 8
 );
 
+
+# Pain-extreme chocolaté avec et jus d'orange
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -1077,6 +1115,9 @@ VALUES
 	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 2
 );
+
+
+# Pain-extreme chocolaté avec et jus d'orange
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -1100,6 +1141,8 @@ VALUES
 , 1
 );
 
+# Pâté chinois
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -1110,6 +1153,8 @@ VALUES
 	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 1
 );
+
+# Biscuit oréo
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
@@ -1122,6 +1167,8 @@ VALUES
 , 1
 );
 
+# Banane
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
@@ -1133,12 +1180,27 @@ VALUES
 , 1
 );
 
+# Collation santé
+
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
 VALUES
 ( (SELECT idRepas FROM Repas WHERE nom = 'Collation santé')
 , (SELECT idAliment FROM Aliments 
     WHERE nom = 'Pomme'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
+, 1
+);
+
+# Dessert glacé
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Dessert glacé')
+, (SELECT idAliment FROM Aliments 
+    WHERE nom = 'sandwich à la crème glacée'
 	  AND quantite = 1
 	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 1
