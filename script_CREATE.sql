@@ -31,6 +31,10 @@ CREATE TABLE IF NOT EXISTS Utilisateurs
 );
 
 ALTER TABLE Utilisateurs
+ADD CONSTRAINT Utilisateurs_nom_prenom_UK
+UNIQUE (nom, prenom);
+
+ALTER TABLE Utilisateurs
 ADD CONSTRAINT Utilisateurs_Sexes_FK
 FOREIGN KEY (idSexe) REFERENCES Sexes (idSexe);
 
@@ -62,9 +66,9 @@ UNIQUE (nom);
 CREATE TABLE IF NOT EXISTS Journees
 ( idJournee INT PRIMARY KEY AUTO_INCREMENT
 , idUtilisateur INT NOT NULL
-, idRepasDejeuner INT
-, idRepasDiner INT
-, idRepasSouper INT
+, idRepasDejeuner INT NOT NULL
+, idRepasDiner INT NOT NULL
+, idRepasSouper INT NOT NULL
 , dateJour DATE NOT NULL
 );
 

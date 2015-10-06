@@ -1206,3 +1206,130 @@ VALUES
 , 1
 );
 
+
+#Insert Journée
+
+# Mike Callahan
+
+INSERT INTO Journees
+(idUtilisateur, idRepasDejeuner, idRepasDiner, idRepasSouper, dateJour)
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Callahan' AND prenom = 'Mike')
+, (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec lait')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour quatre avec lait')
+, DATE('2015-09-03')
+);
+
+INSERT INTO Journees
+(idUtilisateur, idRepasDejeuner, idRepasDiner, idRepasSouper, dateJour)
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Callahan' AND prenom = 'Mike')
+, (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour deux')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois pour enfant')
+, DATE('2015-09-04')
+);
+
+
+# Mary Callahan
+
+INSERT INTO Journees
+(idUtilisateur, idRepasDejeuner, idRepasDiner, idRepasSouper, dateJour)
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Callahan Finn' AND prenom = 'Mary')
+, (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec légumes pour enfant')
+, (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 6 onces')
+, DATE('2015-09-03')
+);
+
+INSERT INTO Journees
+(idUtilisateur, idRepasDejeuner, idRepasDiner, idRepasSouper, dateJour)
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Callahan Finn' AND prenom = 'Mary')
+, (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec légumes pour enfant')
+, (SELECT idRepas FROM Repas WHERE nom = 'Macaroni au fromage de taille médium avec légumes')
+, DATE('2015-09-04')
+);
+
+
+# Tom Hauptman
+
+INSERT INTO Journees
+(idUtilisateur, idRepasDejeuner, idRepasDiner, idRepasSouper, dateJour)
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Hauptman' AND prenom = 'Tom')
+, (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
+, (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 12 onces avec légumes')
+, (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 12 onces avec légumes')
+, DATE('2015-09-03')
+);
+
+INSERT INTO Journees
+(idUtilisateur, idRepasDejeuner, idRepasDiner, idRepasSouper, dateJour)
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Hauptman' AND prenom = 'Tom')
+, (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner simple avec lait')
+, (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 12 onces avec légumes')
+, (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 12 onces avec légumes')
+, DATE('2015-09-04')
+);
+
+
+# Jake Stonebender
+
+INSERT INTO Journees
+(idUtilisateur, idRepasDejeuner, idRepasDiner, idRepasSouper, dateJour)
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Stonebender' AND prenom = 'Jake')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec lait')
+, (SELECT idRepas FROM Repas WHERE nom = 'Grand macaroni au fromage familial')
+, (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 18 onces avec légumes')
+, DATE('2015-09-03')
+);
+
+INSERT INTO Journees
+(idUtilisateur, idRepasDejeuner, idRepasDiner, idRepasSouper, dateJour)
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Stonebender' AND prenom = 'Jake')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec et jus d''orange')
+, (SELECT idRepas FROM Repas WHERE nom = 'Grand macaroni au fromage familial avec lait')
+, (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois')
+, DATE('2015-09-04')
+);
+
+/*
+# Table Journées
+CREATE TABLE IF NOT EXISTS Journees
+( idJournee INT PRIMARY KEY AUTO_INCREMENT
+, idUtilisateur INT NOT NULL
+, idRepasDejeuner INT
+, idRepasDiner INT
+, idRepasSouper INT
+, dateJour DATE NOT NULL
+);
+
+ALTER TABLE Journees
+ADD CONSTRAINT Journees_dateJour_idUtilisateur_UK
+UNIQUE (dateJour, idUtilisateur);
+
+# Insert Collation
+
+INSERT INTO Collations
+(idJournee, idRepas, quantite)
+VALUES
+(
+);
+
+
+CREATE TABLE IF NOT EXISTS Collations
+( idCollation INT PRIMARY KEY AUTO_INCREMENT
+, idJournee INT NOT NULL
+, idRepas INT NOT NULL
+, quantite FLOAT NOT NULL DEFAULT 1
+);
+
+UNIQUE (idJournee, idRepas, quantite);
+*/
