@@ -504,13 +504,6 @@ VALUES(
 'Pizza toute garnie pour quatre avec lait'
 );
 
-/*
-INSERT INTO Repas
-(nom)
-VALUES(
-'6 Biscuit oréo'
-);
-*/
 
 # 2 tranches de pizza toute garnie et un verre de lait
 INSERT INTO Repas
@@ -526,13 +519,6 @@ VALUES(
 'Pâté chinois pour enfant'
 );
 
-/*
-INSERT INTO Repas
-(nom)
-VALUES(
-'10 Biscuit oréo'
-);
-*/
 
 # 1 tranche de pain entier au beurre et un verre de jus d’orange de 200 millilitres
 INSERT INTO Repas
@@ -659,518 +645,502 @@ VALUES(
 'Pâté chinois'
 );
 
-/*
-INSERT INTO Repas
-(nom)
-VALUES(
-'4 Biscuit oréo'
-);
-*/
-
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Oeuf cuit à la poêle'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Oeuf cuit à la poêle'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Tranche de pain de blé entier'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Tranche de pain de blé entier'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Nutella'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Nutella'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de lait 2%'
-	AND quantite = 100 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux avec nutella et lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de lait 2%'
+	  AND quantite = 100 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 2
 );
 
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de lait 2%'
-	AND quantite = 100 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de lait 2%'
+	  AND quantite = 100 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Pâté chinois'
-	AND quantite = 540
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Pâté chinois'
+	  AND quantite = 540
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour quatre avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de lait 2%'
-	AND quantite = 100 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour quatre avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de lait 2%'
+	  AND quantite = 100 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour quatre avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Pizza toute garnie'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour quatre avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Pizza toute garnie'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Pointe(s)') )
 , 4
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour deux')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de lait 2%'
-	AND quantite = 100 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour deux')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de lait 2%'
+	  AND quantite = 100 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour deux')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Pizza toute garnie'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pizza toute garnie pour deux')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Pizza toute garnie'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Pointe(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois pour enfant')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Pâté chinois'
-	AND quantite = 540
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois pour enfant')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Pâté chinois'
+	  AND quantite = 540
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 1.5
 );
 
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Tranche de pain de blé entier'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Tranche de pain de blé entier'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Beurre'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Beurre'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de jus d’orange'
-	AND quantite = 100 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner copieux standard avec jus d''orange')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de jus d’orange'
+	  AND quantite = 100 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec légumes pour enfant')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Pâté chinois'
-	AND quantite = 540
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec légumes pour enfant')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Pâté chinois'
+	  AND quantite = 540
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 0.5
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec légumes pour enfant')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Carotte crue (petite)'
-	AND quantite = 1
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois avec légumes pour enfant')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Carotte crue (petite)'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 10
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 6 onces')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Steak au poivre'
-	AND quantite = 6
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Once(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 6 onces')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Steak au poivre'
+	  AND quantite = 6
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Once(s)') )
 , 1
 );
 
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Tranche de pain de blé entier'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Tranche de pain de blé entier'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Nutella'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Nutella'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de jus d’orange'
-	AND quantite = 100 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner chocolaté et jus d''orange')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de jus d’orange'
+	  AND quantite = 100 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Macaroni au fromage de taille médium avec légumes')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Macaroni au fromage maison'
-	AND quantite = 200 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Macaroni au fromage de taille médium avec légumes')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Macaroni au fromage maison'
+	  AND quantite = 200 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Macaroni au fromage de taille médium avec légumes')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Branche de céleri'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Macaroni au fromage de taille médium avec légumes')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Branche de céleri'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 3
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Oeuf cuit à la poêle'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Oeuf cuit à la poêle'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Tranche de pain blanc'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Tranche de pain blanc'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Beurre'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Beurre'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de lait 2%'
-	AND quantite =  100
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner complet avec pain blanc')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de lait 2%'
+	  AND quantite =  100
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 12 onces avec légumes')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Steak au poivre'
-	AND quantite = 6
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Once(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 12 onces avec légumes')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Steak au poivre'
+	  AND quantite = 6
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Once(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 12 onces avec légumes')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Carotte crue (petite)'
-	AND quantite = 1
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 12 onces avec légumes')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Carotte crue (petite)'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 5
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner simple avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Tranche de pain blanc'
-	AND quantite = 1
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner simple avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Tranche de pain blanc'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner simple avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Beurre'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner simple avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Beurre'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Déjeuner simple avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de lait 2%'
-	AND quantite =  100
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Déjeuner simple avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de lait 2%'
+	  AND quantite =  100
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Tranche de pain blanc'
-	AND quantite = 1
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Tranche de pain blanc'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') )
 , 4
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Nutella'
-	AND quantite = 1 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Nutella'
+	  AND quantite = 1 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)') )
 , 4
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de lait 2%'
-	AND quantite =  100
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de lait 2%'
+	  AND quantite =  100
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 4
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Grand macaroni au fromage familial')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Macaroni au fromage maison'
-	AND quantite = 200 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Grand macaroni au fromage familial')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Macaroni au fromage maison'
+	  AND quantite = 200 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 3
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 18 onces avec légumes')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Steak au poivre'
-	AND quantite = 6
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Once(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 18 onces avec légumes')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Steak au poivre'
+	  AND quantite = 6
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Once(s)') )
 , 3
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 18 onces avec légumes')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Carotte crue (petite)'
-	AND quantite = 1
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Steak au poivre 18 onces avec légumes')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Carotte crue (petite)'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
 , 8
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec et jus d''orange')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Tranche de pain blanc'
-	AND quantite = 1
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unité(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec et jus d''orange')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Tranche de pain blanc'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)') )
 , 4
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec et jus d''orange')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de jus d’orange'
-	AND quantite =  100
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pain-extreme chocolaté avec et jus d''orange')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de jus d’orange'
+	  AND quantite =  100
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 2
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Grand macaroni au fromage familial avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Macaroni au fromage maison'
-	AND quantite = 200 
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Grand macaroni au fromage familial avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Macaroni au fromage maison'
+	  AND quantite = 200 
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 3
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Grand macaroni au fromage familial avec lait')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Verre de lait 2%'
-	AND quantite =  100
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Breuvage') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Grand macaroni au fromage familial avec lait')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Verre de lait 2%'
+	  AND quantite =  100
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)') )
 , 1
 );
 
 INSERT INTO RepasAliments
 (idRepas, idAliment, quantite)
-VALUES(
-(SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois')
-, (SELECT idAliment FROM Aliments WHERE 
-	nom = 'Pâté chinois'
-	AND quantite = 540
-	AND (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') 
-	AND ( SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé') )
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Pâté chinois')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Pâté chinois'
+	  AND quantite = 540
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)') )
 , 1
 );
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Biscuit oréo')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Biscuit oréo'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Banane')
+, (SELECT idAliment FROM Aliments 
+	WHERE nom = 'Banane'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
+, 1
+);
+
+INSERT INTO RepasAliments
+(idRepas, idAliment, quantite)
+VALUES
+( (SELECT idRepas FROM Repas WHERE nom = 'Collation santé')
+, (SELECT idAliment FROM Aliments 
+    WHERE nom = 'Pomme'
+	  AND quantite = 1
+	  AND idUniteDeMesure = (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)') )
+, 1
+);
+

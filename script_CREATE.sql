@@ -91,14 +91,15 @@ FOREIGN KEY (idRepasSouper) REFERENCES Repas (idRepas);
 # Table Collations
 CREATE TABLE IF NOT EXISTS Collations
 ( idCollation INT PRIMARY KEY AUTO_INCREMENT
-, idJournee INT NOT NULL # NOT NULL?
+, idJournee INT NOT NULL
 , idRepas INT NOT NULL
+, quantite FLOAT NOT NULL DEFAULT 1
 );
 
 #Unique idRepas? Mais sa permet d'Avoir un repas oréo pour plusieurs oréo
 ALTER TABLE Collations
 ADD CONSTRAINT Collations_idJournee_idRepas_UK
-UNIQUE (idJournee);
+UNIQUE (idJournee, idRepas, quantite);
 
 ALTER TABLE Collations
 ADD CONSTRAINT Collations_Journees_FK
@@ -144,7 +145,7 @@ CREATE TABLE IF NOT EXISTS Aliments
 
 ALTER TABLE Aliments
 ADD CONSTRAINT Aliments_nom_quantite_idUniteDeMesure_idCategorie_UK
-UNIQUE (nom, quantite, idUniteDeMesure, idCategorie);
+UNIQUE (nom, quantite, idUniteDeMesure);
 
 ALTER TABLE Aliments
 ADD CONSTRAINT Aliments_Categories_FK
