@@ -2,118 +2,149 @@
 
 INSERT INTO Sexes
 (nom, abreviation)
-VALUES ( 
+VALUES 
+( 
 'Homme'
-, 'H');
+, 'H'
+);
 
 INSERT INTO Sexes
 (nom, abreviation)
-VALUES ( 
+VALUES 
+( 
 'Femme'
-, 'F');
+,'F'
+);
 
 
 #Insert Utilisateurs
 
 INSERT INTO Utilisateurs
 (prenom, nom, idSexe)
-VALUES ( 
+VALUES 
+( 
 'Mike'
-, 'Callahan'
-, (SELECT idSexe FROM Sexes WHERE nom = 'homme')
+,'Callahan'
+,(SELECT idSexe FROM Sexes WHERE nom = 'homme')
 );
 
 INSERT INTO Utilisateurs
 (prenom, nom, idSexe)
-VALUES ( 
+VALUES 
+( 
 'Mary'
-, 'Callahan Finn'
-, (SELECT idSexe FROM Sexes WHERE nom = 'femme')
+,'Callahan Finn'
+,(SELECT idSexe FROM Sexes WHERE nom = 'femme')
 );
 
 INSERT INTO Utilisateurs
 (prenom, nom, idSexe)
-VALUES ( 
+VALUES 
+( 
 'Tom'
-, 'Hauptman'
-, (SELECT idSexe FROM Sexes WHERE nom = 'homme')
+,'Hauptman'
+,(SELECT idSexe FROM Sexes WHERE nom = 'homme')
 );
 
 INSERT INTO Utilisateurs
 (prenom, nom, idSexe)
-VALUES ( 
+VALUES 
+( 
 'Jake'
-, 'Stonebender'
-, (SELECT idSexe FROM Sexes WHERE nom = 'homme')
+,'Stonebender'
+,(SELECT idSexe FROM Sexes WHERE nom = 'homme')
 );
 
 #Insert Categories
 
 INSERT INTO Categories
 (nom)
-VALUES ( 
-'Breuvage');
+VALUES 
+( 
+'Breuvage'
+);
 
 INSERT INTO Categories
 (nom, description)
-VALUES ( 
+VALUES 
+( 
 'Plat préparé'
-, 'Un plat composé de plusieurs aliments. Il sert généralement de plat principal dans
-un repas.');
+,'Un plat composé de plusieurs aliments. Il sert généralement de plat principal dans un repas.'
+);
 
 INSERT INTO Categories
 (nom, description)
-VALUES ( 
+VALUES 
+( 
 'Accompagnement'
-, 'Un aliment qui sert généralement à compléter un repas.');
+,'Un aliment qui sert généralement à compléter un repas.'
+);
 
 INSERT INTO Categories
 (nom)
-VALUES ( 
-'Dessert');
+VALUES 
+( 
+'Dessert'
+);
 
 #Insert UnitesDeMesure
 
 INSERT INTO UnitesDeMesure
 (nom)
-VALUES ( 
-'Unite(s)');
+VALUES 
+( 
+'Unite(s)'
+);
 
 INSERT INTO UnitesDeMesure
 (nom)
-VALUES ( 
-'Tranche(s)');
+VALUES 
+( 
+'Tranche(s)'
+);
 
 INSERT INTO UnitesDeMesure
 (nom)
-VALUES ( 
-'once(s)');
+VALUES 
+( 
+'once(s)'
+);
 
 INSERT INTO UnitesDeMesure
 (nom)
-VALUES ( 
-'gramme(s)');
+VALUES 
+( 
+'gramme(s)'
+);
 
 INSERT INTO UnitesDeMesure
 (nom)
-VALUES ( 
-'pointe(s)');
+VALUES 
+( 
+'pointe(s)'
+);
+
+# Beure/Nutella, etc.
+INSERT INTO UnitesDeMesure
+(nom)
+VALUES 
+( 
+'Tartine(s)'
+);
 
 INSERT INTO UnitesDeMesure
 (nom)
-VALUES ( 
-'Tartine(s)');
-
-INSERT INTO UnitesDeMesure
-(nom)
-VALUES ( 
-'Millilitre(s)');
+VALUES 
+( 
+'Millilitre(s)'
+);
 
 #Insert Aliments
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Oeuf cuit à la poêle'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)')
@@ -123,7 +154,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Oeuf cuit dur'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)')
@@ -133,7 +165,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Tranche de pain blanc'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)')
@@ -143,7 +176,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Tranche de pain de blé entier'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tranche(s)')
@@ -153,9 +187,10 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Nutella'
-, (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') # Je pense que catégorie est optionnel?
+, (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)')
 , 1
 , 80
@@ -163,9 +198,10 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Beurre'
-, (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement') # Je pense que catégorie est optionnel?
+, (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Tartine(s)')
 , 1
 , 10
@@ -173,7 +209,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Verre de jus d’orange'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Breuvage')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)')
@@ -183,7 +220,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Verre de lait 2%'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Breuvage')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Millilitre(s)')
@@ -193,7 +231,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Pomme'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)')
@@ -203,7 +242,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Banane'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)')
@@ -213,7 +253,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Pâté chinois'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)')
@@ -223,7 +264,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Steak au poivre'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Once(s)')
@@ -233,7 +275,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Macaroni au fromage maison'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Gramme(s)')
@@ -243,7 +286,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Pizza toute garnie'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Plat préparé')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Pointe(s)')
@@ -253,7 +297,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Carotte crue (petite)'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)')
@@ -263,7 +308,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Branche de céleri'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Accompagnement')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)')
@@ -273,7 +319,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Biscuit oréo'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Dessert')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)')
@@ -283,7 +330,8 @@ VALUES (
 
 INSERT INTO Aliments
 (nom, idCategorie, idUniteDeMesure, quantite, calorie)
-VALUES (
+VALUES 
+(
 'Sandwich à la crème glacée'
 , (SELECT idCategorie FROM Categories WHERE nom = 'Dessert')
 , (SELECT idUniteDeMesure FROM UnitesDeMesure WHERE nom = 'Unite(s)')
@@ -294,191 +342,182 @@ VALUES (
 
 #Insert Pesees
 
+#Mike Callahan
+
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan'
- AND prenom = 'Mike')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan'
+	AND prenom = 'Mike')
 , 110
-, DATE '2015-01-06'
+, DATE('2015-01-06')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan'
- AND prenom = 'Mike')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan'
+	AND prenom = 'Mike')
 , 112
-, DATE '2015-03-25'
+, DATE('2015-03-25')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan'
- AND prenom = 'Mike')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan'
+	AND prenom = 'Mike')
 , 113
-, DATE '2015-04-03'
+, DATE('2015-04-03')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan'
- AND prenom = 'Mike')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan'
+	AND prenom = 'Mike')
 , 118
-, DATE '2015-08-03'
+, DATE('2015-08-03')
 );
+
+# Mary Callahan Finn
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan Finn'
- AND prenom = 'Mary')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan Finn'
+	AND prenom = 'Mary')
 , 50
-, DATE '2015-01-01'
+, DATE('2015-01-01')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan Finn'
- AND prenom = 'Mary')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan Finn'
+	AND prenom = 'Mary')
 , 50
-, DATE '2015-02-01'
+, DATE('2015-02-01')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan Finn'
- AND prenom = 'Mary')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan Finn'
+	AND prenom = 'Mary')
 , 51
-, DATE '2015-03-02'
+, DATE('2015-03-02')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan Finn'
- AND prenom = 'Mary')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan Finn'
+	AND prenom = 'Mary')
 , 50
-, DATE '2015-04-01'
+, DATE('2015-04-01')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan Finn'
- AND prenom = 'Mary')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan Finn'
+	AND prenom = 'Mary')
 , 49
-, DATE '2015-05-01'
+, DATE('2015-05-01')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan Finn'
- AND prenom = 'Mary')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan Finn'
+	AND prenom = 'Mary')
 , 47
-, DATE '2015-06-01'
+, DATE('2015-06-01')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Callahan Finn'
- AND prenom = 'Mary')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Callahan Finn'
+	AND prenom = 'Mary')
 , 48
-, DATE '2015-09-01'
+, DATE('2015-09-01')
 );
+
+# Tom Hauptman
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Hauptman'
- AND prenom = 'Tom')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Hauptman'
+	AND prenom = 'Tom')
 , 60
-, DATE '2015-01-01'
+, DATE('2015-01-01')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Hauptman'
- AND prenom = 'Tom')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Hauptman'
+    AND prenom = 'Tom')
 , 60
-, DATE '2015-06-01'
+, DATE('2015-06-01')
 );
+
+# Jake Stonebender
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Stonebender'
- AND prenom = 'Jake')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Stonebender'
+    AND prenom = 'Jake')
 , 110
-, DATE '2015-01-05'
+, DATE('2015-01-05')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Stonebender'
- AND prenom = 'Jake')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Stonebender'
+	AND prenom = 'Jake')
 , 107
-, DATE '2015-04-06'
+, DATE('2015-04-06')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Stonebender'
- AND prenom = 'Jake')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Stonebender'
+	AND prenom = 'Jake')
 , 104
-, DATE '2015-06-20'
+, DATE('2015-06-20')
 );
 
 INSERT INTO Pesees
 (idUtilisateur, valeurKG, datePesee)
-VALUES(
-(SELECT idUtilisateur 
- FROM Utilisateurs 
- WHERE nom = 'Stonebender'
- AND prenom = 'Jake')
+VALUES
+( (SELECT idUtilisateur FROM Utilisateurs 
+	WHERE nom = 'Stonebender'
+	AND prenom = 'Jake')
 , 102
-, DATE '2015-09-3'
+, DATE('2015-09-3')
 );
 
 #Insert Repas
