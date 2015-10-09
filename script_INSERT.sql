@@ -1339,36 +1339,107 @@ VALUES
 , DATE('2015-09-04')
 );
 
-/*
-# Table Journées
-CREATE TABLE IF NOT EXISTS Journees
-( idJournee INT PRIMARY KEY AUTO_INCREMENT
-, idUtilisateur INT NOT NULL
-, idRepasDejeuner INT
-, idRepasDiner INT
-, idRepasSouper INT
-, dateJour DATE NOT NULL
-);
 
-ALTER TABLE Journees
-ADD CONSTRAINT Journees_dateJour_idUtilisateur_UK
-UNIQUE (dateJour, idUtilisateur);
+# INSERT Collations
 
-# Insert Collation
+
+# Mike Callahan 
 
 INSERT INTO Collations
 (idJournee, idRepas, quantite)
 VALUES
-(
+((SELECT idJournee FROM Journees
+	WHERE
+	dateJour = DATE('2015-09-03')
+    AND idUtilisateur = (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Callahan' AND prenom = 'Mike'))
+, (SELECT idRepas FROM Repas WHERE nom = 'Biscuit oréo')
+, 6
+);
+
+INSERT INTO Collations
+(idJournee, idRepas, quantite)
+VALUES
+((SELECT idJournee FROM Journees
+	WHERE
+	dateJour = DATE('2015-09-04')
+    AND idUtilisateur = (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Callahan' AND prenom = 'Mike'))
+, (SELECT idRepas FROM Repas WHERE nom = 'Biscuit oréo')
+, 10
 );
 
 
-CREATE TABLE IF NOT EXISTS Collations
-( idCollation INT PRIMARY KEY AUTO_INCREMENT
-, idJournee INT NOT NULL
-, idRepas INT NOT NULL
-, quantite FLOAT NOT NULL DEFAULT 1
+
+#Mary Callahan Finn
+
+INSERT INTO Collations
+(idJournee, idRepas, quantite)
+VALUES
+((SELECT idJournee FROM Journees
+	WHERE
+	dateJour = DATE('2015-09-04')
+    AND idUtilisateur = (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Callahan Finn' AND prenom = 'Mary'))
+, (SELECT idRepas FROM Repas WHERE nom = 'Biscuit oréo')
+, 1
 );
 
-UNIQUE (idJournee, idRepas, quantite);
-*/
+
+# Tom Hauptman
+
+INSERT INTO Collations
+(idJournee, idRepas, quantite)
+VALUES
+((SELECT idJournee FROM Journees
+	WHERE
+	dateJour = DATE('2015-09-03')
+    AND idUtilisateur = (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Hauptman' AND prenom = 'Tom'))
+, (SELECT idRepas FROM Repas WHERE nom = 'Collation Santé')
+, 2
+);
+
+
+INSERT INTO Collations
+(idJournee, idRepas, quantite)
+VALUES
+((SELECT idJournee FROM Journees
+	WHERE
+	dateJour = DATE('2015-09-04')
+    AND idUtilisateur = (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Hauptman' AND prenom = 'Tom'))
+, (SELECT idRepas FROM Repas WHERE nom = 'Collation Santé')
+, 1
+);
+
+INSERT INTO Collations
+(idJournee, idRepas, quantite)
+VALUES
+((SELECT idJournee FROM Journees
+	WHERE
+	dateJour = DATE('2015-09-04')
+    AND idUtilisateur = (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Hauptman' AND prenom = 'Tom'))
+, (SELECT idRepas FROM Repas WHERE nom = 'Banane')
+, 1
+);
+
+
+# Jake Stonebender
+
+INSERT INTO Collations
+(idJournee, idRepas, quantite)
+VALUES
+((SELECT idJournee FROM Journees
+	WHERE
+	dateJour = DATE('2015-09-03')
+    AND idUtilisateur = (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Stonebender' AND prenom = 'Jake'))
+, (SELECT idRepas FROM Repas WHERE nom = 'Dessert glacé')
+, 1
+);
+
+INSERT INTO Collations
+(idJournee, idRepas, quantite)
+VALUES
+((SELECT idJournee FROM Journees
+	WHERE
+	dateJour = DATE('2015-09-04')
+    AND idUtilisateur = (SELECT idUtilisateur FROM Utilisateurs WHERE nom = 'Stonebender' AND prenom = 'Jake'))
+, (SELECT idRepas FROM Repas WHERE nom = 'Biscuit oréo')
+, 4
+);
